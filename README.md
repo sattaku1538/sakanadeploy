@@ -4,7 +4,7 @@
 男鹿の海と魚に関する写真投稿サイト
 
 ### サイトテーマ
-サカナとキミと男鹿と
+サカナとキミと男鹿と<br>
 ～男鹿で食べて、撮って、釣りをして～
 
 ### テーマを選んだ理由
@@ -22,7 +22,7 @@
 <...>
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1LqZ4NpbXIp-19QHiEymqfhoHZ8IcXyYLEql4MtsnxYk/edit?usp=sharing
+- [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1LqZ4NpbXIp-19QHiEymqfhoHZ8IcXyYLEql4MtsnxYk/edit?usp=sharing)
 
 ## 開発環境
 - OS：Linux(CentOS)
