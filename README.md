@@ -19,7 +19,9 @@
 そこで、釣りのメッカである男鹿半島で釣りをするにあたって、どこで、どのように釣りをすれば良いのかわからない時に利用する。
 
 ## 設計書
-<...>
+- [ER図](https://drive.google.com/file/d/1b_XnAFjZHtk8zzkqKJw0STK_aI9nOmQ_/view?usp=sharing)
+- []()
+- []()
 
 ## チャレンジ要素一覧
 - [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1LqZ4NpbXIp-19QHiEymqfhoHZ8IcXyYLEql4MtsnxYk/edit?usp=sharing)
