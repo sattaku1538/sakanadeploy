@@ -19,6 +19,7 @@
 そこで、釣りのメッカである男鹿半島で釣りをするにあたって、どこで、どのように釣りをすれば良いのかわからない時に利用する。
 
 ## 設計書
+- [機能一覧](https://docs.google.com/spreadsheets/d/143FKEOayKwbgFH4eo-QM1MxnqwlFaJ8s6Aygbo_jb9s/edit?usp=sharing)
 - [ER図](https://drive.google.com/file/d/1b_XnAFjZHtk8zzkqKJw0STK_aI9nOmQ_/view?usp=sharing)
 - [テーブル提議書](https://docs.google.com/spreadsheets/d/1sTarjJ-hYvG0PuI95t2Er846XAaDdg3SxG2B04SQ4lM/edit?usp=sharing)
 - [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1EjtN_5u7oa620N1IUwcPljBqSL8628d7EJhcuMSO3S8/edit?usp=sharing)
