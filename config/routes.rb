@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
     
@@ -14,11 +6,16 @@ Rails.application.routes.draw do
   
   namespace :public do
     root to: 'homes#top'
-    get 'homes/about'
     # ↓いいね、コメント機能
     resources :books, only: [:new, :index, :show, :edit, :create, :destroy, :update]
     # resource :favorites, only: [:create, :destroy]
     # resources :book_comments, only: [:create, :destroy]
+    
+    # カスタマーズのリソース佐藤Update リソースは基本のアクションしか入っていないので、withdrawは別個で入れる必要がある。
+    resource :customers, only:[:show, :edit, :index, :update]
+    get 'customers/unsubscribe'
+    patch 'customers/withdraw'
+
   end
   
   # 顧客用
