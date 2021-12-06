@@ -23,7 +23,7 @@ class Public::BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @book.user_id = current_user.id
+    @book.customer_id = current_customer.id
     if @book.save
       redirect_to public_books_path(@book), notice: "You have created book successfully."
     else
@@ -52,7 +52,7 @@ class Public::BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :place, :explanation, :image,)
+    params.require(:book).permit(:title, :place, :explanation, :image)
   end
 
   # def ensure_correct_user
