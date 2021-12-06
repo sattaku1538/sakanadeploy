@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sakana</title>
+    <title>Las Caras</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="col-3">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse flex-column small" id="navbarNav">
+                <% if customer_signed_in? %>
+                  <span>ようこそ、<%= current_customer.name %> さん！</span>
+                <% end %>
+                <ul class="navbar-nav d-flex flex-wrap">
+                  <% if customer_signed_in? %>
+                  <%= render "layouts/customer_signed" %>
+                  <% else %>
+                  <%= render 'layouts/no_signed' %>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+            <div class="col-6 text-center">
+              <%= link_to "", public_root_path, class:"navbar-brand" %>
+            </div>
+
+            <!--<div class="col-3">-->
+            <!--  %= form_with url: public_products_search_path, method: :get, local: true, class:"d-flex ml-auto" do |f| %>-->
+            <!--    %= f.search_field :keyword, placeholder: "Search", value: @keyword, class:"form-control-sm" %>-->
+            <!--    %= f.submit "Search", class:"btn btn-outline-secondary btn-sm ml-2" %>-->
+             <!--% end %>-->
+            <!--</div>-->
+          </div>
+      </nav>
+    </header>
     <%= yield %>
+    <footer class="text-center my-3">
+      ©Las Caras - sattaku1538
+    </footer>
   </body>
 </html>
