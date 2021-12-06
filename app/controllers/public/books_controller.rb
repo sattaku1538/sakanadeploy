@@ -52,7 +52,7 @@ class Public::BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :place, :explanation, :image_id, :user_id)
+    params.require(:book).permit(:title, :place, :explanation, :image,)
   end
 
   # def ensure_correct_user
