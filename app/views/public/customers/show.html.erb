@@ -1,2 +1,72 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-8 offset-md-1'>
+      <h2>Books</h2>
+       <tbody>
+            <% @books.each do |book| %>
+              <!--<tr id="book_%= @book.id %>">-->
+              <td>
+                <p>タイトル：<%= book.title %></p>
+              </td>
+                <td><%= link_to public_book_path(book.id) do %>
+                  <%= attachment_image_tag book, :image, :fill, 50, 50, fallback: "no-image-icon.jpg" %>
+                  <% end %>
+                </td>
+                <!--<td>%= link_to book.title, book_path(book), class: "book_#{book.id}" %></td>-->
+                <!--<td>%= book.body %></td>-->
+                <!--<td>コメント数: %= book.book_comments.count %></td>-->
+                <!--<td class="favorite-btn-%= book.id %>">%= render "favorites/favorite-btn", book: book %></td>-->
+              <!--</tr>-->
+            <% end %>
+          </tbody>
+     
+      <!--↓↓投稿数の比較を表示-->
+      <!--<div class="border" style="padding:10px;">-->
+      <!--  <table class="table">-->
+      <!--    <thead>-->
+      <!--      <tr>-->
+      <!--       <th>今日の投稿</th>-->
+      <!--       <th>昨日の投稿</th>-->
+      <!--       <th>前日比</th>-->
+      <!--      </tr>-->
+      <!--      </thead>-->
+      <!--     <tbody>-->
+      <!--        <tr>-->
+      <!--         <td>%= @today_book.count %></td>-->
+      <!--         <td>%= @yesterday_book.count %></td>-->
+      <!--         % if @yesterday_book.count == 0 %>-->
+      <!--         <td>前日の投稿はなし</td>-->
+      <!--         % else %>-->
+      <!--           <td>% @the_day_before =   @today_book.count / @yesterday_book.count.to_f  %>-->
+      <!--           %= (@the_day_before * 100).round %>%</td>-->
+      <!--         % end %>-->
+      <!--         </tr>-->
+      <!--     </tbody>-->
+      <!--    </table>-->
+        
+        
+      <!--    <table class="table">-->
+      <!--      <thead>-->
+      <!--        <tr>-->
+      <!--         <th>今週の投稿</th>-->
+      <!--         <th>先週の投稿</th>-->
+      <!--         <th>週間比</th>-->
+      <!--        </tr>-->
+      <!--      </thead>-->
+      <!--     <tbody>-->
+      <!--        <tr>-->
+      <!--         <td>%= @this_week_book.count %></td>-->
+      <!--         <td>%= @last_week_book.count %></td>-->
+      <!--         % if @last_week_book.count == 0 %>-->
+      <!--         <td>先週の投稿はなし</td>-->
+      <!--         % else %>-->
+      <!--           <td>% @the_week_before =   @this_week_book.count / @last_week_book.count.to_f  %>-->
+      <!--           %= (@the_week_before * 100).round %>%</td>-->
+      <!--         % end %>-->
+      <!--         </tr>-->
+      <!--    </tbody>-->
+      <!--  </table>-->
+      <!--</div>  -->
+    </div>
+  </div>
+</div>

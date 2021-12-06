@@ -3,19 +3,20 @@
     <div class='col-md-8 offset-md-1'>
   		<h2>Book detail</h2>
   		<table class='table'>
-  		  <tr id="book_<%= @book.id %>">
-  		    <td><%= link_to user_path(@book.user) do %>
-            <%= @book.user.name %>
-            <%= attachment_image_tag(@book.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br>
+  		  <!--<tr id="book_%= @book.id %>">-->
+  		    <td><%= link_to public_customers_path(@book.customer) do %>
+            <%= @book.customer.name %>
+            <%= attachment_image_tag(@book.customer, :profile_image_id, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br>
             <% end %>
           </td>
-          <!--<td>%= link_to @book.title, book_path(@book) %></td>-->
-          <!--<td>%= @book.body %></td>-->
+          <td><%= link_to @book.title, public_book_path(@book) %></td>
+          <td><%= @book.place %></td>
+          <td><%= @book.explanation %></td>
           <!--<td class="favorite-btn-%= @book.id %>">%= render "favorites/favorite-btn", book: @book %></td>-->
           <!--<td>コメント数: %= @book.book_comments.count %></td>-->
-          <% if @book.user == current_user %>
-            <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
-            <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
+          <% if @book.customer == current_customer %>
+            <td><%= link_to 'Edit', edit_public_customers_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
+            <td><%= link_to 'Destroy', public_book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
           <% end %>
         </tr>
       </table>

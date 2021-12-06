@@ -6,28 +6,29 @@ class Public::CustomersController < ApplicationController
     end
 
     def show
-	  end
+  	@books = @customer.books
+	end
 
   	def edit
   	end
 
   	def update
-  	   if @customer.update(customer_params)
-  	  	redirect_to public_customers_path
-  	  	# フラッシュメッセージいれる？notice: "You have updated your account successfully."
-  	   else
-  	     render "edit"
-         end
+     if @customer.update(customer_params)
+    	redirect_to public_customers_path
+    	# フラッシュメッセージいれる？notice: "You have updated your account successfully."
+     else
+       render "edit"
+     end
     end
 
 	  def unsubscribe
     end
 
-	  def withdraw
+      def withdraw
     	@customer.update(is_deleted: true)
     	reset_session
     	redirect_to public_root_path
-	   end
+       end
 
 	  private
 
