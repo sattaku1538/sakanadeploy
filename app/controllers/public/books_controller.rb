@@ -1,6 +1,6 @@
 class Public::BooksController < ApplicationController
   def new
-    @book = Book.new
+    @book = Book.new(book_params)
   end
   
   def show
@@ -22,10 +22,9 @@ class Public::BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
     @book.customer_id = current_customer.id
     if @book.save
-      redirect_to public_books_path(@book), notice: "You have created book successfully."
+      redirect_to public_books_path, notice: "You have created book successfully."
     else
       @books = Book.all
       render 'new'
@@ -38,9 +37,9 @@ class Public::BooksController < ApplicationController
 
   def update
     if @book.update(book_params[:id])
-      redirect_to public_book_path(@book), notice: "You have updated book successfully."
+       redirect_to public_books_path(@book), notice: "You have updated book successfully."
     else
-      render "edit"
+       render "edit"
     end
   end
 
