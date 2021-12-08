@@ -6,8 +6,8 @@ class Customer < ApplicationRecord
   # ↓↓画像
   attachment :profile_image, destroy: false
   
-  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
-  validates :introduction, length: { maximum: 50 }
+  # validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  # validates :introduction, length: { maximum: 50 }
   
   has_many :books, dependent: :destroy
    

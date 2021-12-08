@@ -5,9 +5,10 @@ class Public::CustomersController < ApplicationController
     end
     
     def shoW
-     @customer = @customer.find(params[:id])
+   	#  @customer = current_customer
+     @customer = Customer.find(params[:id])
      @books = @customer.books
-	   end
+	end
 
    	def edit
    	 @customer = @customer.find(params[:id])
@@ -24,20 +25,20 @@ class Public::CustomersController < ApplicationController
       end
     end
 
-	   def unsubscribe
-	    @customer = current_customer
+	def unsubscribe
+	 @customer = current_customer
     end
 
     def withdraw
      @customer = current_customer
      @customer.update(is_deleted: true)
-       reset_session
-       redirect_to public_root_path
+     reset_session
+     redirect_to public_root_path
     end
     
     private
     
     def customer_params
-    	params.require(:customer).permit(:email, :introduction, :name, :profile_image, :is_deleted)
+     params.require(:customer).permit(:email, :introduction, :name, :profile_image, :is_deleted)
     end
 end
