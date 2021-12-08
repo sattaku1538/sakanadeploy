@@ -36,7 +36,8 @@ class Public::BooksController < ApplicationController
   end
 
   def update
-    if @book.update(book_params[:id])
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
        redirect_to public_books_path(@book), notice: "You have updated book successfully."
     else
        render "edit"
@@ -44,6 +45,7 @@ class Public::BooksController < ApplicationController
   end
 
   def destroy
+    @book = Book.find(params[:id])
     @book.destroy
     redirect_to public_books_path
   end
