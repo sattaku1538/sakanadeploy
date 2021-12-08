@@ -3,7 +3,7 @@
     <div class='col-md-8 offset-md-1'>
         <!--↓↓プロフィールの内容-->
         <table class='table'>
-          <tr><%= attachment_image_tag(@customer, :profile_image_id, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
+          <tr><%= attachment_image_tag(@customer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
           <tr>
         	  <th>name</th>
         	  <th><%= @customer.name %></th>
@@ -13,7 +13,7 @@
         	  <th><%= @customer.introduction %></th>
           </tr>
           <tr>
-            <%= link_to edit_public_customers_path do %>編集する<i class="far fa-edit"></i><% end %>
+            <%= link_to edit_public_customer_path do %>編集する<i class="far fa-edit"></i><% end %>
           </tr>
           <!--<tr>-->
           <!--  <th>follows</th>-->

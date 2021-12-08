@@ -4,7 +4,7 @@ class Public::CustomersController < ApplicationController
      @customers = Customer.all
     end
     
-    def shoW
+    def show
    	#  @customer = current_customer
      @customer = Customer.find(params[:id])
      @books = @customer.books
