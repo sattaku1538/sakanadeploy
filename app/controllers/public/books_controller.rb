@@ -1,6 +1,6 @@
 class Public::BooksController < ApplicationController
   def new
-    @book = Book.new(book_params)
+    @book = Book.new
   end
   
   def show
@@ -22,6 +22,7 @@ class Public::BooksController < ApplicationController
   end
 
   def create
+    @book = Book.new(book_params)
     @book.customer_id = current_customer.id
     if @book.save
       redirect_to public_books_path, notice: "You have created book successfully."
