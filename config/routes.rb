@@ -7,15 +7,15 @@ Rails.application.routes.draw do
   namespace :public do
     root to: 'homes#top'
     # ↓いいね、コメント機能
-    resources :books, only:[:new, :index, :show, :edit, :create, :destroy, :update]
+    resources :books, only: [:new, :index, :show, :edit, :create, :destroy, :update]
     # resource :favorites, only: [:create, :destroy]
     # resources :book_comments, only: [:create, :destroy]
     
-    # カスタマーズのリソース佐藤Update リソースは基本のアクションしか入っていないので、withdrawは別個で入れる必要がある。
-    resources :customers, only:[:show, :edit, :index, :update]
+    resource :customers, only:[:show, :edit, :index, :update]
     get 'customers/unsubscribe'
     patch 'customers/withdraw'
 
+    
   end
   
   # 顧客用
