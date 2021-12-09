@@ -7,15 +7,13 @@ Rails.application.routes.draw do
   namespace :public do
     root to: 'homes#top'
     # ↓いいね、コメント機能
-    resources :books, only: [:new, :index, :show, :edit, :create, :destroy, :update]
-    # resource :favorites, only: [:create, :destroy]
+    resources :books, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
+    resource :favorites, only: [:create, :destroy]
     # resources :book_comments, only: [:create, :destroy]
-    
+   end
     resource :customers, only:[:show, :edit, :index, :update]
     get 'customers/unsubscribe'
     patch 'customers/withdraw'
-
-    
   end
   
     # 顧客用

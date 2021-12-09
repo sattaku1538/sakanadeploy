@@ -12,7 +12,7 @@
           <td><%= @book.title %></td>
           <td><%= @book.place %></td>
           <td><%= @book.explanation %></td>
-          <!--<td class="favorite-btn-%= @book.id %>">%= render "favorites/favorite-btn", book: @book %></td>-->
+          <td class="favorite-btn-<%= book.id %>"><%= render "public/favorites/favorite-btn", book: @book %></td>
           <!--<td>コメント数: %= @book.book_comments.count %></td>-->
           <% if @book.customer == current_customer %>
             <td><%= link_to 'Edit', edit_public_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
