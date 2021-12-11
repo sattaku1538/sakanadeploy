@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
    end
-    resource :customers, only:[:show, :edit, :index, :update]
+    resource :customers, only:[:show, :edit, :update]
+    get 'customers/index'
     get 'customers/unsubscribe'
     patch 'customers/withdraw'
   end

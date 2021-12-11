@@ -26,8 +26,8 @@ class Public::CustomersController < ApplicationController
       end
     end
 
-	def unsubscribe
-	 @customer = current_customer
+   	def unsubscribe
+   	 @customer = current_customer
     end
 
     def withdraw
