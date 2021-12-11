@@ -10,10 +10,7 @@ class Public::CustomersController < ApplicationController
      #  @books.each do |post|
      #  @favorites_count += post.favorites.count
      # end
-     # @customers = Book.includes(:favorited_customers).sort {|a,b| b.favorited_customers.size <=> a.favorited_customers.size} 
      @customers = Customer.includes(:favorites).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size} 
-     # @customers = Customer.includes(:favorites).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size}.to_sql
-     
     end
     
     def show
