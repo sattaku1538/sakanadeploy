@@ -15,4 +15,5 @@ class Public::FavoritesController < ApplicationController
     favorite.destroy
     # redirect_to request.referer AJAX処理のため、コメントアウト
   end
+  
 end

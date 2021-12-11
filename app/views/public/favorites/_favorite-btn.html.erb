@@ -1,5 +1,7 @@
+<td>いいね数：
 <% if book.favorited_by?(current_customer) %>
   <%= link_to book.favorites.count, public_book_favorites_path(book), method: :delete, class: "fas fa-heart heart_red", remote: true %>
 <% else %>
   <%= link_to book.favorites.count, public_book_favorites_path(book), method: :post, class: "fas fa-heart heart_blue", remote: true %>
 <% end %>
+</td>

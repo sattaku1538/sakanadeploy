@@ -27,7 +27,9 @@
               <!--    % end %>-->
               <!--  % end %>-->
               <!--</td>-->
+              <% if customer_signed_in? %>
               <td><%= link_to 'Show', public_customers_path(customer), class: "customer_#{customer.id}" %></td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
