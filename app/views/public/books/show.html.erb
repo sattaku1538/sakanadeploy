@@ -15,7 +15,7 @@
             <td><%= @book.place %></td>
             <td><%= @book.explanation %></td>
              <% if customer_signed_in? %>
-            <td class="favorite-btn-<%= @book.id %>"><%= render "public/favorites/favorite-btn", book: @book %></td>
+            <td class="favorite-btn-<%= @book.id %>">いいね数：<%= render "public/favorites/favorite-btn", book: @book %></td>
             <td class="comments-count">コメント数: <%= @book.book_comments.count %></td>
              <% end %>
              <% if @book.customer == current_customer %>
