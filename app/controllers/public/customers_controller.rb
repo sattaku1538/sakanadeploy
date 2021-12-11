@@ -2,13 +2,26 @@ class Public::CustomersController < ApplicationController
 
     def index
      @customers = Customer.all
+     # @customer = Customer.find(params[:id])
+     # @books = @customers.books
+     # # 変数を定義し、0を代入。いいねｎ合計を表示。
+     # @favorites_count = 0
+     # # countメソッドを使い、１つの投稿に結びつくイイねを予め定義しておいた@likes_countに足していく。
+     #  @books.each do |post|
+     #  @favorites_count += post.favorites.count
+      # end
     end
     
     def show
    	 @customer = current_customer
-    #  @customer = Customer.find(params[:id])
      @books = @customer.books
-	end
+     # 変数を定義し、0を代入。いいねｎ合計を表示。
+     @favorites_count = 0
+     # countメソッドを使い、１つの投稿に結びつくイイねを予め定義しておいた@likes_countに足していく。
+      @books.each do |post|
+      @favorites_count += post.favorites.count
+      end
+	    end
 
    	def edit
    	#  @customer = Customer.find(params[:id])
