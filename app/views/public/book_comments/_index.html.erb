@@ -2,7 +2,7 @@
   <% book_comment_customer = book_comment.customer %>
   <tr>
   	<td>
-  		<%= link_to public_customer_path(book_comment_customer), class: "user_#{book_comment_customer.id}" do %>
+  		<%= link_to public_customers_path(book_comment_customer), class: "customer_#{book_comment_customer.id}" do %>
     		<%= attachment_image_tag book_comment_customer, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %><br>
     		<%= book_comment_customer.name %>
   		<% end %>
