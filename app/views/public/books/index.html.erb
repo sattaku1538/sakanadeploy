@@ -22,7 +22,9 @@
                 </td>
                 <td><%= link_to book.title, public_book_path(book), class: "book_#{book.id}" %></td>
                 <td>コメント数: <%= book.book_comments.count %></td>
+                <% if customer_signed_in? %>
                 <td class="favorite-btn-<%= book.id %>"><%= render "public/favorites/favorite-btn", book: book %></td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>
