@@ -1,2 +1,19 @@
-<h1>Admin::Books#show</h1>
-<p>Find me in app/views/admin/books/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-8 offset-md-1'>
+  		<h2>Book detail</h2>
+    	   <table class='table'>
+    		 <td><%= link_to admin_customers_path(@book.customer) do %>
+             <%= @book.customer.name %>
+             <%= attachment_image_tag(@book.customer, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br>
+             <% end %>
+            </td>
+            <td><%= @book.title %></td>
+            <td><%= @book.place %></td>
+            <td><%= @book.explanation %></td>
+            <td><%= link_to 'Destroy', admin_book_path(@book), method: :delete, data: { confirm: '不適切な投稿は削除します。' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
+           </table>
+    </div>
+  </div>
+</div>
+ 
