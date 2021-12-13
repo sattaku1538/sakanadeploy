@@ -5,7 +5,7 @@ class Admin::CustomersController < ApplicationController
     
     def show
    	 @customer = Customer.find(params[:id])
-	  end
+	   end
  
     def withdraw
      @customer = Customer.find(params[:id])
@@ -18,6 +18,6 @@ class Admin::CustomersController < ApplicationController
     private
     
     def customer_params
-     params.require(:customer).permit(:email, :introduction, :name, :profile_image)
+     params.require(:customer).permit(:is_deleted, :email, :introduction, :name, :profile_image)
     end
 end
