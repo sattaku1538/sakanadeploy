@@ -1,5 +1,7 @@
 <div class='row'>
+  <%=   flash[:admin]  %>
   <div class='col-md-8 offset-md-1'>
+    <h2><%= link_to 'Users一覧', admin_customers_index_path %></h2>
       <h2>Books</h2>
       <table class='table table-hover table-inverse'>
           <thead>
@@ -13,13 +15,12 @@
           <tbody>
             <% @books.each do |book| %>
               <td>
-                <p>タイトル：<%= book.title %></p>
+                <td><%= link_to book.title, admin_book_path(book), class: "book_#{book.id}" %></td>
               </td>
                 <td><%= link_to admin_book_path(book.id) do %>
                   <%= attachment_image_tag book, :image, :fill, 50, 50, fallback: "no-image-icon.jpg" %>
                   <% end %>
                 </td>
-                <td><%= link_to book.title, admin_book_path(book), class: "book_#{book.id}" %></td>
               </tr>
             <% end %>
           </tbody>

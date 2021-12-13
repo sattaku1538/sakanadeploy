@@ -1,0 +1,21 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-8 offset-md-1'>
+        <!--↓↓プロフィールの内容-->
+        <table class='table'>
+          <tr><%= attachment_image_tag(@customer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
+          <tr>
+        	  <th>name</th>
+        	  <th><%= @customer.name %></th>
+          </tr>
+          <tr>
+        	  <th>introduction</th>
+        	  <th><%= @customer.introduction %></th>
+          </tr>
+          <tr>
+            <%= link_to "退会処理", admin_customers_withdraw_path, method: :PATCH, data: {confirm: "不適切なユーザの退会をします。"}, class: "btn btn-light" %>
+          </tr>
+        </table>
+    </div>
+  </div>
+</div>

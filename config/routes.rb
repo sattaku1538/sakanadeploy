@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
     root to: 'books#index'
-    resources :books, only: [:show, :create, :destroy, :update]
+    get 'customers/index'
+    resources :books, only: [:show, :destroy]
+    resources :customers, only:[:show, :destroy]
+    patch 'customers/withdraw'
   end
   
   namespace :public do

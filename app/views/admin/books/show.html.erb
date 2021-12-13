@@ -3,7 +3,7 @@
     <div class='col-md-8 offset-md-1'>
   		<h2>Book detail</h2>
     	   <table class='table'>
-    		 <td><%= link_to admin_customers_path(@book.customer) do %>
+    		 <td><%= link_to admin_customer_path(@book.customer) do %>
              <%= @book.customer.name %>
              <%= attachment_image_tag(@book.customer, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br>
              <% end %>
