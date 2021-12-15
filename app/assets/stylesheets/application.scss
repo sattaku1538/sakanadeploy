@@ -1,0 +1,165 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;500&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap');
+// font-family: 'Outfit', sans-serif;
+// font-family: 'Zen Kaku Gothic New', sans-serif;
+
+/*管理者のログイン*/
+
+.login_box {
+  width: 100%;
+}
+
+.login_box2 {
+  width: 100%;
+}
+.login_table {
+  width: 100%;
+  margin-top: 100px;
+}
+
+/*ここまで*/
+
+/*顧客のログイン*/
+
+.box_login{
+  display: inline-block;
+  background-color: #0099FF;
+  border-radius: 3px;
+  color: #fff;
+}
+
+/*ここまで*/
+
+/*管理者の新規登録*/
+
+.box_sign_up{
+  display: inline-block;
+  background-color: #00CC00;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.form-group {
+  input[type="text"] {
+  width: 100%;
+  }
+
+  input[type="email"] {
+  width: 100%;
+  }
+
+  input[type="password"] {
+  width: 100%;
+  }
+
+  input[type="submit"] {
+  width: 80%;
+  }
+}
+
+/*ここまで*/
+
+// kaminari
+.pagination {
+  justify-content: center;
+}
+
+.pagination span {
+  margin: 0 3px;
+}
+
+// ここまで
+
+// 見出し
+.heading {
+  background-color: #eee;
+  padding: 0 20px;
+}
+
+// ここまで
+
+// admin/products/index プラスボタン
+a.btn--circle {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+// ここまで
+
+// homes_top
+#main_visual {
+  background-image: url("images/cheesecake.jpg");
+  background-size: cover;
+  background-position: bottom;
+  height:335px;
+  width: 100%;
+}
+#main_visual p {
+  background-color: rgba( 255, 255, 255, 0.5);
+  padding: 20px;
+  margin: auto 0;
+}
+
+#about_visual {
+  background-image: url("images/cake-black.jpeg");
+  background-size: cover;
+  background-position: bottom;
+  width:500px;
+  height:200px
+}
+
+// ここまで
+
+// google font
+* {
+  font-family: 'Outfit', 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 100;
+}
+// ここまで
+
+// リンクの文字色青→グレー
+a {
+  color: rgba(0, 0, 0, 0.5);
+}
+// ここまで
+
+// ロゴの調整
+.navbar-brand {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+// ここまで
+
+// font-awesome 細くする
+.fa-thin {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke: 1px #fff; /* `#fff` は背景色とあわせる */
+}
+//
+
+// form-control-sm の枠線調整
+.form-control-sm {
+  border: solid 1px #aaa;
+}
+//

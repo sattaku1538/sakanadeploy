@@ -46,6 +46,7 @@
       <h2>Books</h2>
        <tbody>
             <% @books.each do |book| %>
+            <div class="col-lg-3 col-md-6 mb-4"> 
               <!--<tr id="book_%= @book.id %>">-->
               <td>
                 <p>タイトル：<%= book.title %></p>
@@ -59,6 +60,7 @@
                 <!--<td>コメント数: %= book.book_comments.count %></td>-->
                 <!--<td class="favorite-btn-%= book.id %>">%= render "favorites/favorite-btn", book: book %></td>-->
               <!--</tr>-->
+            </div>
             <% end %>
           </tbody>
      
