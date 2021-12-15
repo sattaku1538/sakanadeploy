@@ -5,19 +5,19 @@
   		<h1>投稿の修正</h1>
   		  <%= form_with model:[:public, @book], local:true do |f| %>
           <div class="form-group">
-            <%= f.label :title %>
+            <%= f.label :title,"活動タイトル" %>
             <%= f.text_field :title, class: 'form-control', size: "20x10" %>
           </div>
           <div class="form-group">
-            <%= f.label :image %>
+            <%= f.label :image, "活動の実績" %>
             <%= f.attachment_field :image, class: 'form-control', size: "20x10" %>
           </div>
           <div class="form-group">
-            <%= f.label :place %>
+            <%= f.label :place, "活動場所" %>
             <%= f.text_area :place, class: 'form-control', size: "20x10" %>
           </div>
           <div class="form-group">
-            <%= f.label :explanation %>
+            <%= f.label :explanation, "活動内容の説明" %>
             <%= f.text_area :explanation, class: 'form-control', size: "20x10" %>
           </div>
           <div class="form-group">

@@ -14,8 +14,8 @@
           <!--↓↓ユーザー一覧-->
           <% @customers.each do |customer| %>
             <tr>
-              <td><%= attachment_image_tag(customer, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
               <td><%= customer.name %></td>
+              <td><%= attachment_image_tag(customer, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
               <!--↓いいね合計数表示-->
               <td><strong><%= customer.favorites.count %></strong></td>
               <% if customer_signed_in? %>
