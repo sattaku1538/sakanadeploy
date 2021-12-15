@@ -15,7 +15,9 @@ class Customer < ApplicationRecord
   has_many :favorited_books, through: :favorites, source: :book
   
   # バリデーション
-  validates :name, :email, presence: true
+  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :email, presence: true
+  validates :introduction, length: { maximum: 100 }, presence: true
    
   # 退会機能
   def active_for_authentication?
