@@ -13,6 +13,9 @@ class Customer < ApplicationRecord
   has_many :favorites, dependent: :destroy
   # ↓いいね機能のアソシエーション
   has_many :favorited_books, through: :favorites, source: :book
+  
+  # バリデーション
+  validates :name, :email, presence: true
    
   # 退会機能
   def active_for_authentication?
