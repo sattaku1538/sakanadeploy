@@ -1,18 +1,33 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-8 offset-md-1'>
-  		<h2>Book detail</h2>
-    	   <table class='table'>
-    		 <td><%= link_to admin_customer_path(@book.customer) do %>
+  		<h2>投稿詳細</h2>
+    	   <table class='table table-hover table-inverse'>
+      	  <thead>
+            <tr>
+              <th>ユーザー名</th>
+              <th>プロフィール画像</th>
+              <th>活動タイトル</th>
+              <th>活動場所</th>
+              <th>活動内容の説明</th>
+              <th>不適切な投稿を削除</th>
+            </tr>
+            </thead>
+      		 <td>
+      		 <%= link_to admin_customer_path(@book.customer) do %>
              <%= @book.customer.name %>
-             <%= attachment_image_tag(@book.customer, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br>
+             <% end %>
+            </td>
+            <td>
+      		 <%= link_to admin_customer_path(@book.customer) do %>
+             <%= attachment_image_tag(@book.customer, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
              <% end %>
             </td>
             <td><%= @book.title %></td>
             <td><%= @book.place %></td>
             <td><%= @book.explanation %></td>
             <td><%= link_to 'Destroy', admin_book_path(@book), method: :delete, data: { confirm: '不適切な投稿は削除します。' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
-           </table>
+        </table>
     </div>
   </div>
 </div>
