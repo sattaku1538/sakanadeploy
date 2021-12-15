@@ -1,25 +1,27 @@
-<h2>あなたの親切を投稿してください。</h2>
-
-<%= form_with model:[:public, @book], local:true do |f| %>
-<%= render 'layouts/error', model: f.object %>
-  <div class="form-group">
-    <%= f.label :title, "活動タイトル" %>
-    <%= f.text_field :title, class: 'form-control', size: "20x10", placeholder: "※一言で活動が伝わる内容に" %>
-  </div>
-  <div class="form-group">
-    <p><strong>（活動実績の写真をアップロードしてください。）</strong></p>
-    <%= f.label :image, "活動の実績" %>
-    <%= f.attachment_field :image, class: 'form-control', size: "20x10" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :place, "活動場所" %>
-    <%= f.text_area :place, class: 'form-control', size: "20x10", placeholder: "例）東京都の東京駅付近" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :explanation, "活動内容の説明" %>
-    <%= f.text_area :explanation, class: 'form-control', size: "20x10", placeholder: "・日付・時間・個人又は法人による活動かどうか・活動効果・改善点等を記入してください。" %>
-  </div>
-  <div class="form-group">
-    <%= f.submit class: 'btn btn-success' %>
-  </div>
-<% end %>
+<div class='container'>
+  <h2>あなたの親切を投稿してください。</h2>
+  
+  <%= form_with model:[:public, @book], local:true do |f| %>
+  <%= render 'layouts/error', model: f.object %>
+    <div class="form-group">
+      <%= f.label :title, "活動タイトル" %>
+      <%= f.text_field :title, class: 'form-control', size: "20x10", placeholder: "※一言で活動が伝わる内容に" %>
+    </div>
+    <div class="form-group">
+      <p><strong>（活動実績の写真をアップロードしてください。）</strong></p>
+      <%= f.label :image, "活動の実績" %>
+      <%= f.attachment_field :image, class: 'form-control', size: "20x10" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :place, "活動場所" %>
+      <%= f.text_area :place, class: 'form-control', size: "20x10", placeholder: "例）東京都の東京駅付近" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :explanation, "活動内容の説明" %>
+      <%= f.text_area :explanation, class: 'form-control', size: "20x10", placeholder: "・日付・時間・個人又は法人による活動かどうか・活動効果・改善点等を記入してください。" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: 'btn btn-success' %>
+    </div>
+  <% end %>
+</div>  
