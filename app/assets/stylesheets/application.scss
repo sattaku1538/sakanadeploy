@@ -109,7 +109,6 @@ a.btn--circle {
 
 // homes_top
 #main_visual {
-  background-image: url("images/cheesecake.jpg");
   background-size: cover;
   background-position: bottom;
   height:335px;
@@ -122,7 +121,6 @@ a.btn--circle {
 }
 
 #about_visual {
-  background-image: url("images/cake-black.jpeg");
   background-size: cover;
   background-position: bottom;
   width:500px;
@@ -163,3 +161,7 @@ a {
   border: solid 1px #aaa;
 }
 //
+.attachment_image_tag {
+background-image: image-url("no-image-icon.jpg");
+background-image: image-url("no_image.jpg");
+}
