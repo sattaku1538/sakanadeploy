@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+   root to: 'homes#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
     root to: 'books#index'
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
   end
   
   namespace :public do
-    root to: 'homes#top'
     # ↓いいね、コメント機能
     resources :books, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
     resource :favorites, only: [:create, :destroy]

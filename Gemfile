@@ -69,8 +69,7 @@ gem "refile", require:"refile/rails", github:'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
 
-
-# ↓↓デプロイ用の記述
+↓↓デプロイ用の記述
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
