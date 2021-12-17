@@ -70,7 +70,8 @@ gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
 
 # ↓↓デプロイ用の記述
-# gem 'dotenv-rails'
-# group :production do
-#   gem 'mysql2'
-# end
+gem 'dotenv-rails'
+
+group :production do
+  gem 'mysql2'
+end

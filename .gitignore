@@ -1,7 +1,3 @@
-; ↓↓デプロイ用
-/.env
-# Ignore master key for decrypting credentials and more.
-/config/master.key
 
 # See https://help.github.com/articles/ignoring-files for more about ignoring files.
 #
@@ -34,3 +30,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+; ↓↓デプロイ用
+/.env
