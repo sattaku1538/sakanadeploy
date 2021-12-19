@@ -2,7 +2,7 @@
   <div class='row'>
     <div class='col-md-8 offset-md-1'>
   		<h2>投稿の詳細</h2>
-  		
+
     	<table class='table table-hover table-inverse'>
     	  <thead>
             <tr>
@@ -28,31 +28,41 @@
             <td><%= @book.title %></td>
             <td><%= @book.place %></td>
             <td><%= @book.explanation %></td>
-            
+
              <% if customer_signed_in? %>
             <td class="favorite-btn-<%= @book.id %>"><%= render "public/favorites/favorite-btn", book: @book %></td>
             <td class="comments-count"><%= @book.book_comments.count %></td>
              <% end %>
-             
+
              <% if @book.customer == current_customer %>
             <td><%= link_to 'Edit', edit_public_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
             <td><%= link_to 'Destroy', public_book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
              <% end %>
           </tr>
         </table>
-        
-        <table class="book_comments">
+
           <!--↓コメント機能-->
-          <%= render 'public/book_comments/index', book: @book %>
+          <br>
+          <h4>投稿に対してのコメント一覧</h4>
+        <table class="book_comments table table-hover table-inverse">
+            <thead>
+              <tr>
+                  <td></td>
+                  <td>コメント者</td>
+                  <td>プロフィール画像</td>
+                  <td>コメント内容</td>
+                  <td>コメント削除</td>
+              </tr>
+              <%= render 'public/book_comments/index', book: @book %>
+           </thead>
         </table>
-        
-        
+
         <!--↓↓コメントの箱-->
         <%= form_with(model: [:public, @book, @book_comment]) do |f| %>
           <%= f.text_area :comment, size:"90x5" %>
           <%= f.submit '送信'%>
         <% end %>
-        
+
     </div>
   </div>
 </div>
