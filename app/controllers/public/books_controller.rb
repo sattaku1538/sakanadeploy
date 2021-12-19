@@ -1,6 +1,7 @@
 class Public::BooksController < ApplicationController
   def new
     @book = Book.new
+    @customer = current_customer
   end
 
   def show
@@ -9,7 +10,7 @@ class Public::BooksController < ApplicationController
   end
 
   def index
-    # @customer = current_customer.id
+    @customer = current_customer
   #   # 投稿したものを表示する。
     @books = Book.all
   #   # ↓↓いいね数の順番に投稿を表示。
