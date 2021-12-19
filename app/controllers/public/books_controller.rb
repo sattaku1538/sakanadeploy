@@ -1,4 +1,6 @@
 class Public::BooksController < ApplicationController
+  # before_action :authenticate_customer!
+  
   def new
     @book = Book.new
     @customer = current_customer
