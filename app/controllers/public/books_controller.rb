@@ -1,12 +1,13 @@
 class Public::BooksController < ApplicationController
   # before_action :authenticate_customer!
-  
+
   def new
     @book = Book.new
     @customer = current_customer
   end
 
   def show
+    @customer = current_customer
     @book = Book.find(params[:id])
     @book_comment = BookComment.new
   end

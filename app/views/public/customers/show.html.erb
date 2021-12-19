@@ -16,7 +16,9 @@
                  <!--↓いいね合計数表示-->
                  <td><%= @favorites_count %></td>
               </tr>
-              <%= link_to edit_public_customer_path do %>編集する<i class="far fa-edit"></i><% end %>
+              <% if @customer == current_customer %>
+              <%= link_to edit_public_customer_path(@customer) do %>編集する<i class="far fa-edit"></i><% end %>
+              <% end %>
           </table>
 
             <!--<tr>-->
@@ -57,7 +59,7 @@
               <div class="form-group">
               <%= form_with model:[:public, book], local:true do |f| %>
               <%= f.label :explanation, "活動内容の説明" %>
-              <%= f.text_area :explanation, class: 'form-control', size: "5x2" %>
+              <%= f.text_area :explanation, class: 'form-control', size: "5x2", readonly: true %>
               <% end %>
               </div>
           </td>
