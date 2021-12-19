@@ -3,16 +3,16 @@
     <div class="col-5 mx-auto">
       <div class="quit">
         <h3>本当に退会しますか？</h3>
-      
+
           <div class="quit-msg">
             退会すると、会員情報登録や<br>
             これまでの投稿履歴が閲覧できなくなります。<br>
             退会する場合は、「退会する」をクリックしてください。
           </div>
-          
+
           <div class="mt-3">
             <%= link_to "退会しない", public_customers_path, class: "btn btn-dark" %>
-            <%= link_to "退会する", public_customers_withdraw_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-light" %>
+            <%= link_to "退会する", public_path(@customer.id), method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-light" %>
         　</div>
       </div>
     </div>

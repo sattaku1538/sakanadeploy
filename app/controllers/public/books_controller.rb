@@ -2,21 +2,22 @@ class Public::BooksController < ApplicationController
   def new
     @book = Book.new
   end
-  
+
   def show
     @book = Book.find(params[:id])
     @book_comment = BookComment.new
   end
-  
+
   def index
+    # @customer = current_customer.id
   #   # 投稿したものを表示する。
     @books = Book.all
   #   # ↓↓いいね数の順番に投稿を表示。
     to  = Time.current.at_end_of_day
     from  = (to - 13.day).at_beginning_of_day
     @books = Book.includes(:favorited_customers).
-      sort {|a,b| 
-        b.favorited_customers.includes(:favorites).where(created_at: from...to).size <=> 
+      sort {|a,b|
+        b.favorited_customers.includes(:favorites).where(created_at: from...to).size <=>
         a.favorited_customers.includes(:favorites).where(created_at: from...to).size
       }
   end

@@ -3,7 +3,7 @@
     <div class="col-12">
       <h3 class="mb-3">登録情報編集</h3>
 
-      <%= form_with(model:@customer, url:public_customers_path, local: true ,method: :put) do |f| %>
+      <%= form_with(model:@customer, url:public_customer_path(@customer), local: true ,method: :put) do |f| %>
       <%= render 'layouts/error', model: f.object %>
         <div class="form-group col-xs-12">
           <%= f.label :"ユーザー名", class: "col-sm-3 control-label" %>

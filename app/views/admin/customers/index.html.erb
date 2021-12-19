@@ -1,6 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-8 offset-md-1'>
+      <%=   flash[:admin]  %>
       <h5><%= link_to '全投稿一覧', admin_root_path %></h5>
       <h2><%= link_to '＜ユーザー一覧＞', admin_customers_index_path %></h2>
       <table class='table'>

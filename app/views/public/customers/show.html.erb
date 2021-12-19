@@ -16,9 +16,9 @@
                  <!--↓いいね合計数表示-->
                  <td><%= @favorites_count %></td>
               </tr>
-              <%= link_to edit_public_customers_path do %>編集する<i class="far fa-edit"></i><% end %>
+              <%= link_to edit_public_customer_path do %>編集する<i class="far fa-edit"></i><% end %>
           </table>
-          
+
             <!--<tr>-->
             <!--  <th>follows</th>-->
             <!--  <th>%= link_to @customer.followings.count, user_followings_path(@customer) %></th>-->
@@ -27,7 +27,7 @@
             <!--  <th>followers</th>-->
             <!--  <th>%= link_to @customer.followers.count, user_followers_path(@customer) %></th>-->
             <!--</tr>-->
-          
+
           <!--↓↓フォロー機能-->
           <!--<div class='row'>-->
           <!--  % if current_customer != customer %>-->
@@ -40,7 +40,7 @@
           <!--    %= link_to '',edit_public_customer_path(customer),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{customer.id}" %>-->
           <!--  % end %>-->
           <!--</div>-->
-          
+
        <!--↓↓自分が今まで投稿した一覧-->
         <h4>過去の投稿一覧</h4>
          <% @books.each do |book| %>

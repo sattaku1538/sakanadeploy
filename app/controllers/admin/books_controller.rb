@@ -3,6 +3,7 @@ class Admin::BooksController < ApplicationController
   
   def show
     @book = Book.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
   
   def index
