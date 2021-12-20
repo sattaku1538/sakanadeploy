@@ -23,10 +23,11 @@
                 <ul class="navbar-nav d-flex flex-wrap">
                   <% if customer_signed_in? %>
                   <%= render "layouts/customer_signed" %>
+                  <% elsif admin_signed_in? %>
+                  <%= render 'layouts/admin_signed' %>
                   <% else %>
                   <%= render 'layouts/no_signed' %>
                   <% end %>
-                </ul>
               </div>
             </div>
             <div class="col-6 text-center">

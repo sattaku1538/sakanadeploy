@@ -2,27 +2,27 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  
+
   def after_sign_in_path_for(resource)
     public_books_path
   end
-  
+
   def after_sign_out_path_for(resource)
     root_path
   end
-  
+
    # 会員の論理削除のための記述。退会後は、同じアカウントでは利用できない。
-  def reject_customer
-    @customer = Customer.find_by(email: params[:email][:name])
-    if @customer
-      if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == false)
-        flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
-        redirect_to new_customer_registration_path
-      else
-        flash[:notice] = "項目を入力してください"
-      end
-    end
-  end
+  # def reject_customer
+  #   @customer = Customer.find_by(email: params[:email][:name])
+  #   if @customer
+  #     if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == false)
+  #       flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
+  #       redirect_to new_customer_registration_path
+  #     else
+  #       flash[:notice] = "項目を入力してください"
+  #     end
+  #   end
+  # end
 
   # GET /resource/sign_in
   # def new

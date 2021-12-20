@@ -5,6 +5,7 @@
       
       <h5 class="mb-3">会員の方はこちらからログイン</h5>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render 'layouts/error', model: f.object %>
         <div class="form-group row">
           <label class="col-2 offset-1">メールアドレス</label>
           <div class="col-5"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
