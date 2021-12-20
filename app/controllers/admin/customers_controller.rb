@@ -1,5 +1,5 @@
 class Admin::CustomersController < ApplicationController
-    before_action :authenticate_admin!
+    before_action :authenticate_admin!,except: [:new_admin_session_path]
 
     def index
      @customers = Customer.all
@@ -13,7 +13,7 @@ class Admin::CustomersController < ApplicationController
      @customer = Customer.find(params[:id])
      @customer.destroy()
      reset_session
-     flash[admin] = "退会処理を実行いたしました"
+     flash[:admin] = "不正なユーザーを退会させました。"
      redirect_to admin_root_path
     end
 

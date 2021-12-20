@@ -1,19 +1,19 @@
 class Admin::BooksController < ApplicationController
-  before_action :authenticate_admin!
-  
+  before_action :authenticate_admin!,except: [:new_admin_session_path]
+
   def show
     @book = Book.find(params[:id])
-    @customer = Customer.find(params[:id])
   end
-  
+
   def index
   #   # 投稿したものを表示する。
     @books = Book.all
   end
-  
+
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
+    flash[:admin] = "不正な投稿を削除しました。"
     redirect_to admin_root_path
   end
 
@@ -23,5 +23,5 @@ class Admin::BooksController < ApplicationController
     params.require(:book).permit(:title, :place, :explanation, :image)
   end
 
-  
+
 end

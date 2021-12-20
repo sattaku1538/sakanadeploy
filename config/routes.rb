@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
     root to: 'books#index'
-    get 'customers/index'
     resources :books, only: [:show, :destroy]
-    resources :customers, only:[:show, :destroy]
+    resources :customers, only:[:show, :destroy, :index]
     patch 'customers/withdraw/:id', to: 'customers#withdraw'
   end
 

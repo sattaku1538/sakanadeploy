@@ -2,7 +2,7 @@ class Public::CustomersController < ApplicationController
     # before_action :authenticate_customer!
 
     def index
-     @customer = current_customer.id
+     @customer = current_customer
      @customers = Customer.includes(:books).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size}
     end
 
