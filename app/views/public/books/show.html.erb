@@ -31,7 +31,7 @@
 
              <% if customer_signed_in? %>
             <td class="favorite-btn-<%= @book.id %>"><%= render "public/favorites/favorite-btn", book: @book %></td>
-            <td><%= @book.book_comments.count %></td>
+            <td class="comments-count"><%= @book.book_comments.count %></td>
              <% end %>
 
              <% if @book.customer == current_customer %>

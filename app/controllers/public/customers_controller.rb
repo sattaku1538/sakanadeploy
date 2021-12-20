@@ -2,13 +2,14 @@ class Public::CustomersController < ApplicationController
     # before_action :authenticate_customer!
 
     def index
-     @customer = current_customer
+     @customer = current_customer.id
      @customers = Customer.includes(:books).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size}
     end
 
     def show
-   	 @customer = Customer.find(params[:id])
-     @books = @customer.books
+   	 @customer = current_customer.id
+   	 @customeruser = Customer.find(params[:id])
+     @books = @customeruser.books
      # 変数を定義し、0を代入。いいねｎ合計を表示。
      @favorites_count = 0
      # countメソッドを使い、１つの投稿に結びつくイイねを予め定義しておいた@likes_countに足していく。
