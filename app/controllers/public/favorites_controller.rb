@@ -1,5 +1,5 @@
 class Public::FavoritesController < ApplicationController
-  # before_action :authenticate_customer!
+  before_action :authenticate_customer!,except: [:top, :index]
 
   def create
     @book = Book.find(params[:book_id])

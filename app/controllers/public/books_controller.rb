@@ -1,5 +1,5 @@
 class Public::BooksController < ApplicationController
-  # before_action :authenticate_customer!
+  before_action :authenticate_customer!,except: [:top, :index]
 
   def new
     @book = Book.new
@@ -38,14 +38,18 @@ class Public::BooksController < ApplicationController
   end
 
   def edit
+    @customer = current_customer
     @book = Book.find(params[:id])
   end
 
   def update
+    @customer = current_customer
     @book = Book.find(params[:id])
     if @book.update(book_params)
-       redirect_to public_books_path(@book), notice: "You have updated book successfully."
+      flash[:edit] = "<投稿を更新しました。>"
+      redirect_to public_books_path(@book)
     else
+       flash[:notice] = "<更新されていません。>"
        render "edit"
     end
   end
@@ -53,6 +57,7 @@ class Public::BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
+    flash[:destroy] = "<投稿を削除しました。>"
     redirect_to public_books_path
   end
 
