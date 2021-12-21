@@ -1,0 +1,13 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <% if @model == 'book' %>
+        <h3 class="mb-3">"<%= @keyword %>" を含む投稿の検索結果</h3>
+        <%= render 'admin/books/index', products: @book %>
+      <% elsif @model == 'customer' %>
+        <h3 class="mb-3">"<%= @keyword %>" を含む顧客の検索結果</h3>
+        <%= render 'admin/customers/index', customers: @customers %>
+      <% end %>
+    </div>
+  </div>
+</div>

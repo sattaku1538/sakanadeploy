@@ -14,3 +14,10 @@
 <li class="nav-item">
   <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"nav-link ml-2" %>
 </li>
+
+<div class="pull-right">
+  <%= form_with url: admin_searches_search_path, method: :get, local: true, class:"d-flex ml-auto" do |f| %>
+    <%= f.search_field :keyword, placeholder: "Search", value: @keyword, class:"form-control-sm" %>
+    <%= f.submit "Search", class:"btn btn-outline-secondary btn-sm ml-2" %>
+  <% end %>
+</div>
