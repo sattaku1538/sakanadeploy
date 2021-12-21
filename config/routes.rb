@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  root to: 'homes#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'homes#top'
+  get '/search', to: 'searchs#search'
+
   namespace :admin do
     root to: 'books#index'
     resources :books, only: [:show, :destroy]
     resources :customers, only:[:show, :destroy, :index]
     patch 'customers/withdraw/:id', to: 'customers#withdraw'
-    get 'searches/search' => 'searches#search'
   end
 
   namespace :public do
