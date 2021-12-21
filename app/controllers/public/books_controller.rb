@@ -27,6 +27,7 @@ class Public::BooksController < ApplicationController
   end
 
   def create
+    @customer = current_customer
     @book = Book.new(book_params)
     @book.customer_id = current_customer.id
     if @book.save

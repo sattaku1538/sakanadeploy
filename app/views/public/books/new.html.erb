@@ -2,7 +2,7 @@
  <div class='row'>
   <div class='col-md-6 offset-md-1'>
     <h2>あなたの親切を投稿してください。</h2>
-    
+
     <%= form_with model:[:public, @book], local:true do |f| %>
     <%= render 'layouts/error', model: f.object %>
       <div class="form-group">
@@ -23,9 +23,9 @@
         <%= f.text_area :explanation, class: 'form-control', size: "20x10", placeholder: "・日付・時間・個人又は法人による活動かどうか・活動効果・改善点等を記入してください。" %>
       </div>
       <div class="form-group">
-        <%= f.submit "投稿する", class: 'btn btn-success' %>
+        <%= f.submit "Crear Publicacion", class: 'btn btn-success' %>
       </div>
     <% end %>
-  </div>  
- </div>  
-</div>  
+  </div>
+ </div>
+</div>
