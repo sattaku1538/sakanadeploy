@@ -14,12 +14,10 @@
 <li class="nav-item">
   <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"nav-link ml-2" %>
 </li>
-
-<div class="pull-right">
+<div class='nav-bar'>
   <%= form_tag(search_path, method: :get) do %>
     <%= text_field_tag 'content' %>
-    <%= select_tag 'model', options_for_select({ "Customer" => "customer", "Book" => "book" }) %>
-    <%= select_tag 'method', options_for_select({ "完全一致" => "perfect", "部分一致" => "partial" }) %>
-    <%= submit_tag '検索' %>
+    <%= select_tag 'model', options_for_select({ "登録者を検索" => "customer", "投稿を検索" => "book" }) %>
+    <%= submit_tag 'Buscar' %>
   <% end %>
 </div>
