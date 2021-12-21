@@ -15,6 +15,9 @@
             <% if customer_signed_in? %>
             <td><%= link_to 'ユーザー詳細', public_customer_path(customer), class: "customer_#{customer.id}" %></td>
             <% end %>
+            <% if admin_signed_in? %>
+            <td><%= link_to 'ユーザー詳細', admin_customer_path(customer), class: "customer_#{customer.id}" %></td>
+            <% end %>
           </tr>
             <% end %>
         </tbody>
@@ -32,10 +35,12 @@
               <% @records.each do |book| %>
                 <tr>
                   <td><%= book.title %></td>
-                  <td><% if customer_signed_in? %>
+                  <td><% if customer_signed_in? %></td>
                   <%= link_to '投稿の詳細', public_book_path(book), class: "book_#{book.id}" %>
                   <% end %>
-                  </td>
+                  <% if admin_signed_in? %>
+                  <td><%= link_to '投稿の詳細', admin_book_path(book), class: "customer_#{book.id}" %></td>
+                  <% end %>
                 </tr>
               <% end %>
             </tbody>
