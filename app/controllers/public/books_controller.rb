@@ -15,7 +15,10 @@ class Public::BooksController < ApplicationController
   def index
     @customer = current_customer
   #   # 投稿したものを表示する。
-    @books = Book.all
+    #@books = Book.page(params[:page]).reverse_order
+    #@books = Book.page(params[:page])
+
+
   #   # ↓↓いいね数の順番に投稿を表示。
     to  = Time.current.at_end_of_day
     from  = (to - 13.day).at_beginning_of_day
@@ -24,6 +27,7 @@ class Public::BooksController < ApplicationController
         b.favorited_customers.includes(:favorites).where(created_at: from...to).size <=>
         a.favorited_customers.includes(:favorites).where(created_at: from...to).size
       }
+    @books = Kaminari.paginate_array(@books).page(params[:page]).per(2)
   end
 
   def create

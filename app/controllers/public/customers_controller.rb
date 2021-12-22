@@ -3,7 +3,7 @@ class Public::CustomersController < ApplicationController
 
     def index
      @customer = current_customer
-     @customers = Customer.includes(:books).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size}
+     @customers = Customer.includes(:books).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size}.page(params[:page]).reverse_order
     end
 
     def show
