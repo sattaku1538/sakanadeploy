@@ -14,8 +14,6 @@ class Public::BooksController < ApplicationController
 
   def index
     @customer = current_customer
-  #   # 投稿したものを表示する。
-    @books = Book.all
   #   # ↓↓いいね数の順番に投稿を表示。
     to  = Time.current.at_end_of_day
     from  = (to - 13.day).at_beginning_of_day
@@ -24,13 +22,15 @@ class Public::BooksController < ApplicationController
         b.favorited_customers.includes(:favorites).where(created_at: from...to).size <=>
         a.favorited_customers.includes(:favorites).where(created_at: from...to).size
       }
+    @books = Kaminari.paginate_array(@books).page(params[:page]).per(10)
   end
 
   def create
+    @customer = current_customer
     @book = Book.new(book_params)
     @book.customer_id = current_customer.id
     if @book.save
-      redirect_to public_books_path, notice: "You have created book successfully."
+      redirect_to public_books_path, notice: "＜投稿に成功しました。＞"
     else
       @books = Book.all
       render 'new'
@@ -46,10 +46,10 @@ class Public::BooksController < ApplicationController
     @customer = current_customer
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      flash[:edit] = "<投稿を更新しました。>"
+      flash[:edit] = "＜投稿を更新しました。＞"
       redirect_to public_books_path(@book)
     else
-       flash[:notice] = "<更新されていません。>"
+       flash[:notice] = "＜更新されていません。＞"
        render "edit"
     end
   end
@@ -57,7 +57,7 @@ class Public::BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    flash[:destroy] = "<投稿を削除しました。>"
+    flash[:destroy] = "＜投稿を削除しました。＞"
     redirect_to public_books_path
   end
 
@@ -66,11 +66,4 @@ class Public::BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :place, :explanation, :image)
   end
-
-  # def ensure_correct_user
-  #   @book = Book.find(params[:id])
-  #   unless @book.user == current_user
-  #     redirect_to public_books_path
-  #   end
-  # end
 end

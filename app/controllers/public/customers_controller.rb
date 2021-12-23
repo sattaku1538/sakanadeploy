@@ -4,6 +4,7 @@ class Public::CustomersController < ApplicationController
     def index
      @customer = current_customer
      @customers = Customer.includes(:books).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size}
+     @customers = Kaminari.paginate_array(@customers).page(params[:page]).per(10)
     end
 
     def show
