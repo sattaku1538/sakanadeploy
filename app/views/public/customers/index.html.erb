@@ -9,8 +9,10 @@
           <tr>
             <th>ユーザー名</th>
             <th>プロフィール画像</th>
-            <th>いいね合計数</th>
+            <th>ポイント合計数</th>
+            <% if customer_signed_in? %>
             <th colspan="3">※ポイント獲得順</th>
+            <% end %>
           </tr>
         </thead>
 

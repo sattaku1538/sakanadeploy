@@ -5,17 +5,17 @@
       <div class="">
         <%= flash[:destroy] %>
         <p style="font-size:1.3rem;line-height: 2.5rem;">
-          <strong>Las Caras</strong>はあなたの親切を投稿するサイトです。<br>
+          <strong><%= link_to "Las Caras", new_customer_session_path %></strong>はあなたの親切を投稿するサイトです。<br>
           普段からあなたが行っている親切を投稿することであなたと世界が変わります。<br>
           <br>
-          あなたの親切はいいねポイントで評価され、ランキングで表示されます。<br>
+          あなたの親切はポイントで評価され、ランキングで表示されます。<br>
           よって、親切をしてポイントを稼げば、あなたのサイト内での評価が上がり<br>
           就活や就学に活かすことができます。<br>
 
-          さぁ、今すぐ、会員登録をして、徳を重ねましょう。<br>
+          さぁ、今すぐ、<%= link_to "会員登録", new_customer_registration_path %>をして、徳を重ねましょう。<br>
           <br>
           会員ではない方も投稿を見ることはできますが、<br>
-          投稿とポイン投票には会員登録が必要になります。<br>
+          投稿とポイント投票には会員登録が必要になります。<br>
         </p>
       </div>
       <div id="about_visual" class="mx-auto"></div>
