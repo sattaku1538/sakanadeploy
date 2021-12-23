@@ -3,6 +3,7 @@ class Admin::CustomersController < ApplicationController
 
     def index
      @customers = Customer.all
+     @customers = Kaminari.paginate_array(@customers).page(params[:page]).per(10)
     end
 
     def show
@@ -12,7 +13,7 @@ class Admin::CustomersController < ApplicationController
     def withdraw
      @customer = Customer.find(params[:id])
      @customer.destroy()
-     flash[:admin] = "不正なユーザーを退会させました。"
+     flash[:admin] = "＜不正なユーザーを退会させました。＞"
      redirect_to admin_customers_path
     end
 

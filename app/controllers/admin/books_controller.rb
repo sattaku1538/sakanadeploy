@@ -8,12 +8,13 @@ class Admin::BooksController < ApplicationController
   def index
   #   # 投稿したものを表示する。
     @books = Book.all
+    @books = Kaminari.paginate_array(@books).page(params[:page]).per(10)
   end
 
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    flash[:admin] = "不正な投稿を削除しました。"
+    flash[:admin] = "＜不正な投稿を削除しました。＞"
     redirect_to admin_root_path
   end
 

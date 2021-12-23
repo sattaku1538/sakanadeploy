@@ -11,6 +11,7 @@
               </tr>
             </thead>
 
+            <%= paginate @records %>
             <tbody>
               <% @records.each do |customer| %>
                 <tr>
@@ -23,12 +24,13 @@
                   <td>
                   <% if admin_signed_in? %>
                   <%= link_to 'ユーザー詳細', admin_customer_path(customer), class: "customer_#{customer.id}" %>
+              　　<% end %>
                   </td>
                 </tr>
-              <% end %>
+      　　　　　  <% end %>
             </tbody>
           </table>
-        <% end %>
+            <%= paginate @records %>
 
         <% else @model == 'book' %>
           <h4>【投稿の検索結果】検索ワード：<%= @content %></h4>
@@ -39,20 +41,25 @@
                 <th colspan="3"></th>
               </tr>
             </thead>
+            <%= paginate @records %>
             <tbody>
               <% @records.each do |book| %>
                 <tr>
                   <td><%= book.title %></td>
-                  <td><% if customer_signed_in? %></td>
+                  <td><% if customer_signed_in? %>
                   <%= link_to '投稿の詳細', public_book_path(book), class: "book_#{book.id}" %>
                   <% end %>
+                  </td>
+                  <td>
                   <% if admin_signed_in? %>
-                  <td><%= link_to '投稿の詳細', admin_book_path(book), class: "customer_#{book.id}" %></td>
+                  <%= link_to '投稿の詳細', admin_book_path(book), class: "customer_#{book.id}" %>
                   <% end %>
+                  </td>
                 </tr>
               <% end %>
             </tbody>
           </table>
+            <%= paginate @records %>
         <% end %>
     </div>
   </div>

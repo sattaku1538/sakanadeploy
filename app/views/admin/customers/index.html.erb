@@ -11,6 +11,7 @@
             <th colspan="3"></th>
           </tr>
         </thead>
+      <%= paginate @customers %>
         <tbody>
           <!--↓↓ユーザー一覧-->
           <% @customers.each do |customer| %>
@@ -22,6 +23,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @customers %>
     </div>
   </div>
 </div>
