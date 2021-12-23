@@ -26,9 +26,12 @@
         <h4>過去の投稿一覧</h4>
          <% @books.each do |book| %>
           <td>
-            <p>活動タイトル：<%= book.title %>｜活動場所：<%= book.place %></p>
+            <p>活動タイトル：<%= book.title %>｜活動場所：<%= book.place %>｜
+              <% if customer_signed_in? %>
+              ポイント数：<%= render "public/favorites/favorite-btn", book: book %>
+              <% end %>
+            </p>
           </td>
-          <td>
               <%= link_to public_book_path(book.id) do %>
               <%= attachment_image_tag book, :image, :fill, 60, 60, fallback: "no-image-icon.jpg" %>
               <% end %>

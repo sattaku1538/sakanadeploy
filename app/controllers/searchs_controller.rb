@@ -14,10 +14,10 @@ class SearchsController < ApplicationController
   def search_for(model, content)
      # 選択したモデルがcustomerだったら
     if model == 'customer'
-     Customer.where('name LIKE ?', '%'+content+'%')
+     Customer.where('name OR introduction LIKE ?', '%'+content+'%')
      # 選択したモデルがbookだったら
     elsif model == 'book'
-     Book.where('title LIKE ?', '%'+content+'%')
+     Book.where('title OR place OR explanation LIKE ?', '%'+content+'%')
     end
   end
 end

@@ -20,10 +20,10 @@
     		  <!--↓Jaxa処理の記述-->
     	  <tr id="book_<%= @book.id %>">
             <td><%= @book.customer.name %></td>
-    		<td>
-        		 <%= link_to public_customers_path(@book.customer) do %>
-                 <%= attachment_image_tag(@book.customer, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br>
-                 <% end %>
+    		    <td>
+      		     <%= link_to public_customers_path(@book.customer) do %>
+               <%= attachment_image_tag(@book.customer, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br>
+               <% end %>
             </td>
             <td><%= @book.title %></td>
             <td><%= @book.place %></td>
@@ -48,7 +48,7 @@
             <thead>
               <tr>
                   <td></td>
-                  <td>コメント者</td>
+                  <td>コメントユーザー</td>
                   <td>プロフィール画像</td>
                   <td>コメント内容</td>
                   <td>コメント削除</td>
