@@ -8,9 +8,9 @@
   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"nav-link ml-4" %>
 </li>
 <div class='nav-bar'>
-  <%= form_tag(search_path, method: :get) do %>
-    <%= text_field_tag 'content' %>
-    <%= select_tag 'model', options_for_select({ "登録者を検索" => "customer", "投稿を検索" => "book" }) %>
-    <%= submit_tag 'Buscar' %>
-  <% end %>
+<%= form_tag(search_path, method: :get) do %>
+<%= text_field_tag 'content' %>
+<%= select_tag 'model', options_for_select({ "登録者を検索" => "customer", "投稿を検索" => "book" }) %>
+<%= submit_tag 'Buscar' %>
+<% end %>
 </div>
