@@ -5,6 +5,7 @@
       <table class='table'>
         <%= flash[:edit] %>
         <thead>
+        <%= paginate @customers %>
           <tr>
             <th>ユーザー名</th>
             <th>プロフィール画像</th>
