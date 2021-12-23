@@ -13,7 +13,7 @@
         	  <th><%= @customer.introduction %></th>
           </tr>
           <tr>
-            <%= link_to "退会処理", admin_path(@customer.id), method: :PATCH, data: {confirm: "不適切なユーザの退会をします。"}, class: "btn btn-danger" %>
+            <%= link_to "退会させますか？", admin_path(@customer.id), method: :PATCH, data: {confirm: "不適切なユーザの退会をします。"}, class: "btn btn-danger" %>
           </tr>
         </table>
     </div>

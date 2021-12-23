@@ -22,6 +22,7 @@
           </table>
 
        <!--↓↓自分が今まで投稿した一覧-->
+        <%= paginate @books %>
         <h4>過去の投稿一覧</h4>
          <% @books.each do |book| %>
           <td>
@@ -41,6 +42,7 @@
               </div>
           </td>
          <% end %>
+         <%= paginate @books %>
     </div>
   </div>
 </div>

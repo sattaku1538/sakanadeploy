@@ -11,6 +11,7 @@ class Public::CustomersController < ApplicationController
    	 @customer = current_customer
    	 @customeruser = Customer.find(params[:id])
      @books = @customeruser.books
+     @books = Kaminari.paginate_array(@books).page(params[:page]).per(10)
      # 変数を定義し、0を代入。いいねｎ合計を表示。
      @favorites_count = 0
      # countメソッドを使い、１つの投稿に結びつくイイねを予め定義しておいた@likes_countに足していく。

@@ -7,6 +7,7 @@ class SearchsController < ApplicationController
     @content = params["content"]
     # @model, @content,を代入した、# search_forを@recordsに代入。
     @records = search_for(@model, @content)
+    @records = Kaminari.paginate_array(@records).page(params[:page]).per(10)
   end
 
   private
