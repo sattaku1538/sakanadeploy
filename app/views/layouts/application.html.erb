@@ -17,32 +17,30 @@
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-                <div class="collapse navbar-collapse flex-column small" id="navbarNavDropdown">
+              <div class="collapse navbar-collapse flex-column small" id="navbarNavDropdown">
+                  <% if customer_signed_in? %>
+                    <span>ようこそ、<%= current_customer.name %> さん！</span>
+                  <% end %>
+                  <ul class="navbar-nav d-flex flex-wrap">
                     <% if customer_signed_in? %>
-                      <span>ようこそ、<%= current_customer.name %> さん！</span>
+                    <%= render "layouts/customer_signed" %>
+                    <% elsif admin_signed_in? %>
+                    <%= render 'layouts/admin_signed' %>
+                    <% else %>
+                    <%= render 'layouts/no_signed' %>
                     <% end %>
-                    <ul class="navbar-nav d-flex flex-wrap">
-                      <% if customer_signed_in? %>
-                      <%= render "layouts/customer_signed" %>
-                      <% elsif admin_signed_in? %>
-                      <%= render 'layouts/admin_signed' %>
-                      <% else %>
-                      <%= render 'layouts/no_signed' %>
-                      <% end %>
-                    </ul>
-                </div>
+                  </ul>
+              </div>
             </div>
-
             <div class="col-6 text-center">
               <%= link_to "", root_path, class:"navbar-brand" %>
             </div>
-
         </div>
       </nav>
     </header>
     <%= yield %>
-    <footer class="text-center my-4">
-      <%= link_to "©Las Caras - sattaku1538", root_path %>
+    <footer class="text-center my-3">
+      ©Las Caras - sattaku1538
     </footer>
   </body>
 </html>
