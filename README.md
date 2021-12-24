@@ -37,6 +37,10 @@
 ## チャレンジ要素一覧
 - [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1LqZ4NpbXIp-19QHiEymqfhoHZ8IcXyYLEql4MtsnxYk/edit?usp=sharing)
 
+## その他資料
+- [テスト仕様書](https://docs.google.com/spreadsheets/d/1zzR8IV4maQ439wup6RNnK7f13IB8Nue9Cq-HhGVnnME/edit?usp=sharin)
+- [作成手順書](https://docs.google.com/spreadsheets/d/1CHedU5qYGx9z8PgAGD4YrcOtS1ezCNNj_7X97Oa7mMc/edit?usp=sharing)
+
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
