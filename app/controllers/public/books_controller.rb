@@ -30,7 +30,8 @@ class Public::BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.customer_id = current_customer.id
     if @book.save
-      redirect_to public_books_path, notice: "＜投稿に成功しました。＞"
+      flash[:success] = "＜投稿に成功しました。＞"
+      redirect_to public_book_path(@book)
     else
       @books = Book.all
       render 'new'
