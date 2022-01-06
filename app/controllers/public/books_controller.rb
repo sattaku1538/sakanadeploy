@@ -22,6 +22,7 @@ class Public::BooksController < ApplicationController
         b.favorited_customers.includes(:favorites).where(created_at: from...to).size <=>
         a.favorited_customers.includes(:favorites).where(created_at: from...to).size
       }
+    @books = Book.order(created_at: :desc)
     @books = Kaminari.paginate_array(@books).page(params[:page]).per(10)
   end
 
@@ -30,6 +31,13 @@ class Public::BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.customer_id = current_customer.id
     if @book.save
+      #Visionモデルに画像を渡すと、その画像の解析し、当てはまるカテゴリーを配列として返す。
+      tags = Vision.get_image_data(@book.image)
+      #該当したタグの配列をeach文で小分けにしてcreateする。
+      #1対多の便利な機能、「親.子供create」と記述すれば、親_idが勝手に保存される。   
+      tags.each do |tag|
+      @book.tags.create(name: tag)
+      end
       flash[:success] = "＜投稿に成功しました。＞"
       redirect_to public_book_path(@book)
     else

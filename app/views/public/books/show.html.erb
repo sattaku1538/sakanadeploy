@@ -11,8 +11,10 @@
               <th>活動タイトル</th>
               <th>活動場所</th>
               <th>活動内容の説明</th>
+              <th>活動実績の写真</th>
               <th>ポイント数</th>
               <th>コメント数</th>
+              <th>投稿日時</th>
               <th>修正</th>
               <th>削除</th>
             </tr>
@@ -28,11 +30,20 @@
             <td><%= @book.title %></td>
             <td><%= @book.place %></td>
             <td><%= @book.explanation %></td>
+            <td>
+              <%= attachment_image_tag @book, :image, :fill, 60, 60, fallback: "no-image-icon.jpg" %>
+              <div class="tag-box">
+              <% @book.tags.each do |tag| %>
+              <span class="label"><%= tag.name %></span>
+              <% end %>
+              </div>
+            </td>
 
              <% if customer_signed_in? %>
             <td class="favorite-btn-<%= @book.id %>"><%= render "public/favorites/favorite-btn", book: @book %></td>
             <td class="comments-count"><%= @book.book_comments.count %></td>
              <% end %>
+            <td><%= @book.created_at.strftime('%Y/%m/%d') %></td>
 
              <% if @book.customer == current_customer %>
             <td><%= link_to 'Edit', edit_public_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
