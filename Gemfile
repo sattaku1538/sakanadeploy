@@ -81,7 +81,6 @@ gem 'rubocop-rails', require:false
 gem 'dotenv-rails'
 
 # ↓↓デプロイ用の記述
-gem 'dotenv-rails'
 
 group :production do
   gem 'mysql2'
