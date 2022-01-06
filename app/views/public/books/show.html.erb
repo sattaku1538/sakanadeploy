@@ -12,6 +12,7 @@
               <th>活動場所</th>
               <th>活動内容の説明</th>
               <th>活動実績の写真</th>
+              <th>AIからのコメント</th>
               <th>ポイント数</th>
               <th>コメント数</th>
               <th>投稿日時</th>
@@ -30,8 +31,8 @@
             <td><%= @book.title %></td>
             <td><%= @book.place %></td>
             <td><%= @book.explanation %></td>
+            <td><%= attachment_image_tag @book, :image, :fill, 100, 100, fallback: "no-image-icon.jpg" %></td>
             <td>
-              <%= attachment_image_tag @book, :image, :fill, 60, 60, fallback: "no-image-icon.jpg" %>
               <div class="tag-box">
               <% @book.tags.each do |tag| %>
               <span class="label"><%= tag.name %></span>
