@@ -11,16 +11,8 @@
               <th>活動タイトル</th>
               <th>活動場所</th>
               <th>活動内容の説明</th>
-              <th>活動実績の写真</th>
-              <th>AIから写真へのコメント</th>
-              <th>ポイント数</th>
-              <th>コメント数</th>
-              <th>投稿日時</th>
-              <th>修正</th>
-              <th>削除</th>
             </tr>
-          </thead>
-    		  <!--↓Jaxa処理の記述-->
+        </thead>
     	  <tr id="book_<%= @book.id %>">
             <td><%= @book.customer.name %></td>
     		    <td>
@@ -31,6 +23,18 @@
             <td><%= @book.title %></td>
             <td><%= @book.place %></td>
             <td><%= @book.explanation %></td>
+        <thead>
+            <tr>
+              <th>活動実績の写真</th>
+              <th>AIから写真へのコメント</th>
+              <th>ポイント数</th>
+              <th>コメント数</th>
+              <th>投稿日時</th>
+              <th>修正</th>
+              <th>削除</th>
+            </tr>
+        </thead>
+    		  <!--↓Jaxa処理の記述-->
             <td><%= attachment_image_tag @book, :image, :fill, 100, 100, fallback: "no-image-icon.jpg" %></td>
             <td>
               <div class="tag-box">
