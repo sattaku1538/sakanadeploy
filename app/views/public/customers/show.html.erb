@@ -25,30 +25,31 @@
         <%= paginate @books %>
         <h4>過去の投稿一覧</h4>
          <% @books.each do |book| %>
-          <td>
-            <div class="form-group">
-              <%= form_with model:[:public, book], local:true do |f| %>
-              <%= f.label :title, "活動タイトル" %>
-              <%= f.text_area :title, class: 'form-control', size: "2x2", readonly: true %>
+         <br>
+          </td>
+              <%= link_to public_book_path(book.id) do %>
+              <%= attachment_image_tag book, :image, :fill, 100, 100, fallback: "no-image-icon.jpg" %>
               <% end %>
-              </div>
             <p>
               <% if customer_signed_in? %>
               ポイント数：<%= render "public/favorites/favorite-btn", book: book %>
               <% end %>
             </p>
+          </td>
+          <td>
+            <div class="form-group">
+              <%= form_with model:[:public, book], local:true do |f| %>
+              <%= f.label :title, "活動タイトル" %>
+              <%= f.text_area :title, class: 'form-control', size: "1x1", readonly: true %>
+              <% end %>
+            </div>
           <td>
             <div class="form-group">
               <%= form_with model:[:public, book], local:true do |f| %>
               <%= f.label :place, "活動場所" %>
-              <%= f.text_area :place, class: 'form-control', size: "2x2", readonly: true %>
+              <%= f.text_area :place, class: 'form-control', size: "2x1", readonly: true %>
               <% end %>
-              </div>
-          </td>
-          </td>
-              <%= link_to public_book_path(book.id) do %>
-              <%= attachment_image_tag book, :image, :fill, 60, 60, fallback: "no-image-icon.jpg" %>
-              <% end %>
+            </div>
           </td>
           <td>
               <div class="form-group">
