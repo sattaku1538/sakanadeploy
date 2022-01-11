@@ -6,11 +6,11 @@
     <%= form_with model:[:public, @book], local:true do |f| %>
     <%= render 'layouts/error', model: f.object %>
       <div class="form-group">
-        <%= f.label :title, "活動タイトル" %>
+        <%= f.label :title, "活動タイトル（15文字以内）" %>
         <%= f.text_field :title, class: 'form-control', size: "20x10", placeholder: "※一言で活動が伝わる内容" %>
       </div>
       <div class="form-group">
-        <%= f.label :image, "活動の実績" %>
+        <%= f.label :image, "活動の実績（10文字以内）" %>
         <p><strong>（活動実績の写真をアップロードしてください。）</strong></p>
         <%= f.attachment_field :image, class: 'form-control', size: "20x10" %>
       </div>
@@ -19,7 +19,7 @@
         <%= f.text_area :place, class: 'form-control', size: "10x2", placeholder: "例）東京都の東京駅付近" %>
       </div>
       <div class="form-group">
-        <%= f.label :explanation, "活動内容の説明" %>
+        <%= f.label :explanation, "活動内容の説明（50文字以内）" %>
         <%= f.text_area :explanation, class: 'form-control', size: "20x10", placeholder: "・日付・時間・個人又は法人による活動かどうか・活動効果・改善点等を記入してください。" %>
       </div>
       <div class="form-group">

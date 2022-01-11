@@ -7,9 +7,9 @@ class Book < ApplicationRecord
   has_many :book_comments, dependent: :destroy
   has_many :tags, dependent: :destroy
 
-  validates :title, presence: true, length: { maximum: 20 }
-  validates :place, presence: true, length: { maximum: 20 }
-  validates :explanation, presence: true, length: { maximum: 150 }
+  validates :title, presence: true, length: { maximum: 15 }
+  validates :place, presence: true, length: { maximum: 10 }
+  validates :explanation, presence: true, length: { maximum: 50 }
   
   validates :image, presence: true
 
