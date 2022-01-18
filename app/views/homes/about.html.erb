@@ -4,19 +4,24 @@
       <h1 class="my-3" style="font-size:2.5rem;">Las Carasとはスペイン語で顔という意味です。</h1>
       <br>
         <p style="font-size:1.3rem;line-height: 2.5rem;">
-          <strong><%= link_to "Las Caras", new_customer_session_path %></strong>はあなたの親切を投稿するサイトです。<br>
+          <strong>Las Caras</strong>はあなたの親切を投稿するSNSサイトです。<br>
           普段からあなたが行っている親切を投稿することであなたと世界が変わります。<br>
           <br>
           あなたの親切はポイントで評価され、ランキングで表示されます。<br>
           よって、親切をしてポイントを稼げば、あなたのサイト内での評価が上がり<br>
           就活や就学に活かすことができます。<br>
 
-          さぁ、今すぐ、<%= link_to "会員登録", new_customer_registration_path %>をして、徳を重ねましょう。<br>
-          <br>
+          さぁ、今すぐ、会員登録をして、徳を重ねましょう。<br>
           <br>
         </p>
+          <p style="font-size:0.8rem;line-height: 1.6rem;">
+            <%= link_to "Topへ戻る", root_path %>／
+            <%= link_to "会員登録", new_customer_registration_path %></p>
+            <%= link_to "ログイン", new_customer_session_path %>
+          <br>
+          <br>
           <p style="font-size:1.0rem;line-height: 2.0rem;">
-          （会員ではない方も投稿を見ることはできますが<%= link_to "、",new_admin_session_path %> 投稿とポイント投票には会員登録が必要になります。）<br>
+          （会員ではない方も投稿を見ることはできますが<%= link_to "、",new_admin_session_path %> 投稿とポイント投票には会員登録が必要になります。）
           </p>
       </div>
       <div id="about_visual" class="mx-auto"></div>
