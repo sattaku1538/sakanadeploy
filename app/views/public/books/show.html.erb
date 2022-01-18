@@ -17,7 +17,7 @@
     	  <tr id="book_<%= @book.id %>">
             <td><%= @book.customer.name %></td>
     		    <td>
-      		     <%= link_to public_customers_path(@book.customer) do %>
+      		     <%= link_to public_customer_path(@book.customer) do %>
                <%= attachment_image_tag(@book.customer, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br>
                <% end %>
             </td>
@@ -55,7 +55,7 @@
          </tr>
         </thead>
         </table>
-        
+
     	<table class='table-inverse'>
          <% if @book.customer == current_customer %>
         <td><%= link_to '投稿修正', edit_public_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
