@@ -11,6 +11,8 @@
     </td>
 
     <td><%= book_comment.comment %></td>
+    
+    <td><%= book_comment.created_at.strftime('%Y/%m/%d') %></td>
 
       	<% if current_customer == book_comment_customer %>
         <td><%= link_to 'Destroy', public_book_book_comment_path(book_comment.book_id, book_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>

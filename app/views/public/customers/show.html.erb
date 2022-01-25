@@ -32,7 +32,8 @@
               <% end %>
             <p>
               <% if customer_signed_in? %>
-              ポイント数：<%= render "public/favorites/favorite-btn", book: book %>
+              <span class="favorite-btn-<%= book.id %>"> <%= render "public/favorites/favorite-btn", book: book %></span>
+              <!--ポイント数：%= render "public/favorites/favorite-btn", book: book %>-->
               <% end %>
             </p>
           </td>

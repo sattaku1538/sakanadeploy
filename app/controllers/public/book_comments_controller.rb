@@ -10,6 +10,7 @@ class Public::BookCommentsController < ApplicationController
           else
 		  render 'public/books/show'
         end
+        @book_comment = BookComment.order(created_at: :desc)
     end
 
     def destroy
