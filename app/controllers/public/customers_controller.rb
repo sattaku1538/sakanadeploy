@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
     before_action :authenticate_customer!,except: [:top, :index]
+    before_action :ensure_correct_customer, only: [:edit, :update, :destroy]
 
     def index
      @customer = current_customer
@@ -55,4 +56,12 @@ class Public::CustomersController < ApplicationController
     def customer_params
      params.require(:customer).permit(:email, :introduction, :name, :profile_image)
     end
+    
+    def ensure_correct_customer
+    @customer = Customer.find(params[:id])
+    unless @customer == current_customer
+      redirect_to public_customers_path
+    end
+  end
+    
 end

@@ -1,5 +1,6 @@
 class Public::BooksController < ApplicationController
   before_action :authenticate_customer!,except: [:top, :index]
+  before_action :ensure_correct_customer, only: [:edit, :update, :destroy]
 
   def new
     @book = Book.new
@@ -75,4 +76,12 @@ class Public::BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :place, :explanation, :image)
   end
+  
+  def ensure_correct_customer
+    @book = Book.find(params[:id])
+    unless @book.customer == current_customer
+      redirect_to public_books_path
+    end
+  end
+  
 end
